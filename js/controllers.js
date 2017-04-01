@@ -47,9 +47,14 @@ angular.module('starter.controllers', [])
 
 .controller('SignupCtrl', [
     '$scope' ,'$state', '$timeout', 'FirebaseDB',
-    function LoginCtrl($scope, $state, $timeout, FirebaseDB,$ionicModal) {
+    function LoginCtrl($scope, $state, $timeout, FirebaseDB) {
       console.log("Signup Controller");
      
+
+$scope.myGoBack = function() {
+     $state.go('login', {})
+  };
+
 
       $scope.doCreateUserAction = function (_credentials) {
 
