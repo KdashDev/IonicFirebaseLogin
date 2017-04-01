@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform, FirebaseDB, $rootScope, $state) {
+.run(function($ionicPlatform, FirebaseDB, $rootScope, $state,$ionicModal) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -36,6 +36,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       });
 
+/*
+ var scope = $rootScope;
+
+  $ionicModal.fromTemplateUrl('templates/signup.html', {
+    scope: scope,
+    animation: 'slide-in-up',
+    backdropClickToClose: true,
+    hardwareBackButtonClose: true
+  }).then(function(modal) {
+    scope.modal = modal;
+  });
+
+*/
 
 })
 
@@ -53,6 +66,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'LoginCtrl',
         cache: false
       })
+
+
+
+
+ .state('signup', {
+        url: "/signup",
+        templateUrl: "templates/signup.html",
+        controller: 'SignupCtrl',
+        cache: false
+      })
+
+
+
+
+
+
       // setup an abstract state for the tabs directive
       .state('tab', {
         url: '/tab',

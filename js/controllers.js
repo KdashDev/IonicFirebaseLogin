@@ -1,8 +1,8 @@
 angular.module('starter.controllers', [])
 
 .controller('LoginCtrl', [
-    '$scope', '$state', '$timeout', 'FirebaseDB',
-    function LoginCtrl($scope, $state, $timeout, FirebaseDB) {
+    '$scope' ,'$state', '$timeout', 'FirebaseDB',
+    function LoginCtrl($scope, $state, $timeout, FirebaseDB,$ionicModal) {
       console.log("Login Controller");
 
       /**
@@ -26,6 +26,31 @@ angular.module('starter.controllers', [])
       /**
       * 
       */
+      $scope.doCreateUserModalAction = function () {
+      /*$scope.modal.show();
+      $timeout($scope.modalLogin, 0);
+      */
+        $state.go('signup', {})
+      }
+
+
+
+
+
+
+
+
+
+
+    }])
+
+
+.controller('SignupCtrl', [
+    '$scope' ,'$state', '$timeout', 'FirebaseDB',
+    function LoginCtrl($scope, $state, $timeout, FirebaseDB,$ionicModal) {
+      console.log("Signup Controller");
+     
+
       $scope.doCreateUserAction = function (_credentials) {
 
         FirebaseDB.createUser(_credentials).then(function (authData) {
@@ -40,7 +65,12 @@ angular.module('starter.controllers', [])
         });
 
       }
+
+
     }])
+
+
+
 
 .controller('DashCtrl', function($scope) {
 
@@ -112,3 +142,4 @@ angular.module('starter.controllers', [])
     }
     
 });
+
